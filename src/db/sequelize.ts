@@ -3,10 +3,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const sequelize = new Sequelize({
-  database: process.env.DATABASE,
-  username: process.env.USERNAME,
+  database: 'world-sport-action',
+  username: 'hizqeel',
   password: process.env.PASSWORD,
-  host: process.env.HOST,
+  host: 'localhost',
   dialect: 'postgres',
   models: [__dirname + '/src/models']
 });

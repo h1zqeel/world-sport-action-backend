@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 import sequelize from '../../db/sequelize';
 
-class HealthIndicators extends Model {
+class HealthIndicator extends Model {
 	public id!: number;
 	public userId!: number;
 	public chestPain!: boolean;
@@ -14,7 +14,7 @@ class HealthIndicators extends Model {
 	public pregnant!: boolean;
 }
 
-HealthIndicators.init(
+HealthIndicator.init(
 	{
 		userId: {
 			type: DataTypes.INTEGER,
@@ -55,11 +55,11 @@ HealthIndicators.init(
 	},
 	{
 		sequelize,
-		modelName: 'HealthIndicators',
+		modelName: 'HealthIndicator',
 		tableName: 'health_indicators',
 	}
 );
 
-HealthIndicators.sync();
+HealthIndicator.sync();
 
-export default HealthIndicators;
+export default HealthIndicator;

@@ -8,7 +8,7 @@ import { Request, Response } from "express";
 import SportsInfo from "../models/SportsInfo";
 import UmpireInfo from "../models/UmpireInfo";
 import ContactInfo from "../models/ContactInfo";
-import HealthIndicators from "../models/HealthIndicators";
+import HealthIndicator from "../models/HealthIndicator";
 
 const getParticipants = async (req: Request, res: Response) => {
   try {
@@ -46,6 +46,10 @@ const getParticipants = async (req: Request, res: Response) => {
           association: Participant.UmpireInfo,
           model: UmpireInfo,
         },
+        {
+          association: Participant.HealthIndicator,
+          model: HealthIndicator,
+        }
       ],
     });
 
@@ -95,6 +99,10 @@ const getParticipant = async (req: Request, res: Response) => {
           association: Participant.UmpireInfo,
           model: UmpireInfo,
         },
+        {
+          association: Participant.HealthIndicator,
+          model: HealthIndicator,
+        }
       ],
     });
 
@@ -158,8 +166,8 @@ const createParticipant = async (req: Request, res: Response) => {
             model: UmpireInfo,
           },
           {
-            association: Participant.HealthIndicators,
-            model: HealthIndicators,
+            association: Participant.HealthIndicator,
+            model: HealthIndicator,
           }
         ],
       },
@@ -198,67 +206,141 @@ const updateParticipant = async (req: Request, res: Response) => {
     await participant.update(participantData, { transaction });
 
     if(participantData.ContactInfo) {
-      console.log('udpdate')
-      await ContactInfo.update(participantData.ContactInfo, {
+      const contactInfo = await ContactInfo.findOne({
         where: { userId: participantId },
         transaction,
       });
+      if(contactInfo) {
+        await contactInfo.update(participantData.ContactInfo, { transaction });
+      } else {
+        await ContactInfo.create({
+          ...participantData.ContactInfo,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     if (participantData.AccreditationInfo) {
-      await AccreditationInfo.update(participantData.AccreditationInfo, {
+      const accreditationInfo = await AccreditationInfo.findOne({
         where: { userId: participantId },
         transaction,
       });
+      if(accreditationInfo) {
+        await accreditationInfo.update(participantData.AccreditationInfo, { transaction });
+      } else {
+        await AccreditationInfo.create({
+          ...participantData.AccreditationInfo,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     if (participantData.ChildrenCheckInfo) {
-      await ChildrenCheckInfo.update(participantData.ChildrenCheckInfo, {
+      const childrenCheckInfo = await ChildrenCheckInfo.findOne({
         where: { userId: participantId },
         transaction,
       });
+      if(childrenCheckInfo) {
+        await childrenCheckInfo.update(participantData.ChildrenCheckInfo, { transaction });
+      } else {
+        await ChildrenCheckInfo.create({
+          ...participantData.ChildrenCheckInfo,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     if (participantData.OccupationEducation) {
-      await OccupationEducation.update(participantData.OccupationEducation, {
+      const occupationEducation = await OccupationEducation.findOne({
         where: { userId: participantId },
         transaction,
       });
+      if(occupationEducation) {
+        await occupationEducation.update(participantData.OccupationEducation, { transaction });
+      } else {
+        await OccupationEducation.create({
+          ...participantData.OccupationEducation,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     if (participantData.EmergencyContact) {
-      await EmergencyContact.update(participantData.EmergencyContact, {
+      const emergencyContact = await EmergencyContact.findOne({
         where: { userId: participantId },
         transaction,
       });
+      if(emergencyContact) {
+        await emergencyContact.update(participantData.EmergencyContact, { transaction });
+      } else {
+        await EmergencyContact.create({
+          ...participantData.EmergencyContact,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     if (participantData.MedicalInfo) {
-      await MedicalInfo.update(participantData.MedicalInfo, {
+      const medicalInfo = await MedicalInfo.findOne({
         where: { userId: participantId },
         transaction,
       });
+
+      if(medicalInfo) {
+        await medicalInfo.update(participantData.MedicalInfo, { transaction });
+      } else {
+        await MedicalInfo.create({
+          ...participantData.MedicalInfo,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     if (participantData.SportsInfo) {
-      await SportsInfo.update(participantData.SportsInfo, {
+      const sportsInfo = await SportsInfo.findOne({
         where: { userId: participantId },
         transaction,
       });
+      if(sportsInfo) {
+        await sportsInfo.update(participantData.SportsInfo, { transaction });
+      } else {
+        await SportsInfo.create({
+          ...participantData.SportsInfo,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     if (participantData.UmpireInfo) {
-      await UmpireInfo.update(participantData.UmpireInfo, {
+      const umpireInfo = await UmpireInfo.findOne({
         where: { userId: participantId },
         transaction,
       });
+
+      if(umpireInfo) {
+        await umpireInfo.update(participantData.UmpireInfo, { transaction });
+      } else {
+        await UmpireInfo.create({
+          ...participantData.UmpireInfo,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
-    if(participantData.HealthIndicators) {
-      await HealthIndicators.update(participantData.HealthIndicators, {
+    if(participantData.HealthIndicator) {
+      const healthIndicator = await HealthIndicator.findOne({
         where: { userId: participantId },
         transaction,
       });
+
+      if(healthIndicator) {
+        await healthIndicator.update(participantData.HealthIndicator, { transaction });
+      } else {
+        await HealthIndicator.create({
+          ...participantData.HealthIndicator,
+          userId: participantId
+        }, { transaction });
+      }
     }
 
     await transaction.commit();

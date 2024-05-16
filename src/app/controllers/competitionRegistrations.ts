@@ -7,7 +7,7 @@ import AccreditationInfo from "../models/AccreditationInfo";
 import ChildrenCheckInfo from "../models/ChildrenCheckInfo";
 import ContactInfo from "../models/ContactInfo";
 import EmergencyContact from "../models/EmergencyContact";
-import HealthIndicators from "../models/HealthIndicators";
+import HealthIndicator from "../models/HealthIndicator";
 import MedicalInfo from "../models/MedicalInfo";
 import OccupationEducation from "../models/OccupationEducation";
 import SportsInfo from "../models/SportsInfo";
@@ -159,8 +159,8 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 				  model: UmpireInfo,
 				},
 				{
-				  association: Participant.HealthIndicators,
-				  model: HealthIndicators,
+				  association: Participant.HealthIndicator,
+				  model: HealthIndicator,
 				},
 				{
 					association: Participant.Language,
@@ -270,7 +270,7 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 			disabilityType: participant.MedicalInfo ? participant.MedicalInfo.disabilityType : null,
 			injury: participant.MedicalInfo ? participant.MedicalInfo.injury : null,
 			ambulanceCover: participant.MedicalInfo ? participant.MedicalInfo.ambulanceCover : null,
-			healthIndicators: participant.HealthIndicators,
+			healthIndicator: participant.HealthIndicator,
 			walkingSportInfo: participant.SportsInfo ? participant.SportsInfo.walkingSportInfo : null,
 			doNotSendEmail: participant.doNotSendEmail
 		});

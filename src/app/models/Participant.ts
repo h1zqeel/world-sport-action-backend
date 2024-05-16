@@ -4,7 +4,7 @@ import AccreditationInfo from './AccreditationInfo';
 import ChildrenCheckInfo from './ChildrenCheckInfo';
 import ContactInfo from './ContactInfo';
 import EmergencyContact from './EmergencyContact';
-import HealthIndicators from './HealthIndicators';
+import HealthIndicator from './HealthIndicator';
 import MedicalInfo from './MedicalInfo';
 import OccupationEducation from './OccupationEducation';
 import SportsInfo from './SportsInfo';
@@ -123,7 +123,7 @@ Participant.hasOne(EmergencyContact, {
 	onDelete: 'CASCADE'
 });
 
-Participant.hasOne(HealthIndicators, {
+Participant.hasOne(HealthIndicator, {
 	foreignKey: 'userId',
 	onDelete: 'CASCADE'
 });
