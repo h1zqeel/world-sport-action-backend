@@ -11,11 +11,6 @@ module.exports = {
 			userId: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
-				references: {
-					model: 'participants', // Assuming 'participants' is the table for Participant model
-					key: 'id',
-				},
-				onDelete: 'CASCADE',
 			},
 			isActive: {
 				type: Sequelize.BOOLEAN,

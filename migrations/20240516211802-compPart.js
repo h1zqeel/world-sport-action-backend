@@ -12,11 +12,6 @@ module.exports = {
 			registeredParticipantId: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
-				references: {
-					model: 'participants', // Assuming 'participants' is the table for Participant model
-					key: 'id',
-				},
-				onDelete: 'CASCADE',
 			},
 			nonRegisteredParticipantId: {
 				type: Sequelize.STRING,
@@ -45,11 +40,6 @@ module.exports = {
 			competitionId: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
-				references: {
-					model: 'competitions', // Assuming 'competitions' is the table for Competition model
-					key: 'id',
-				},
-				onDelete: 'CASCADE',
 			},
 			createdAt: {
 				allowNull: false,

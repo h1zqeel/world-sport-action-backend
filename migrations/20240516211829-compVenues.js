@@ -12,11 +12,6 @@ module.exports = {
 			competitionId: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
-				references: {
-					model: 'competitions', // Assuming 'competitions' is the table for Competition model
-					key: 'id',
-				},
-				onDelete: 'CASCADE',
 			},
 			name: {
 				type: Sequelize.STRING,
