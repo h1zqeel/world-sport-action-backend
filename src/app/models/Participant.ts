@@ -173,6 +173,4 @@ Participant.hasMany(CompetitionParticipant, {
 	onDelete: 'CASCADE'
 });
 
-Participant.sync();
-
 export default Participant;

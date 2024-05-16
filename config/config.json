@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "hizqeel",
+    "password": "postgres",
+    "database": "world-sport-action",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
