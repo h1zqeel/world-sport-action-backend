@@ -127,41 +127,42 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 			},
 			include: [
 				{
-				  association: Participant.ContactInfo,
-				  model: ContactInfo
+					association: Participant.ContactInfo,
+					model: ContactInfo
 				},
 				{
-				  association: Participant.AccreditationInfo,
-				  model: AccreditationInfo,
+					association: Participant.AccreditationInfo,
+					model: AccreditationInfo,
 				},
 				{
-				  association: Participant.ChildrenCheckInfo,
-				  model: ChildrenCheckInfo,
+					association: Participant.ChildrenCheckInfo,
+					model: ChildrenCheckInfo,
 				},
 				{
-				  association: Participant.OccupationEducation,
-				  model: OccupationEducation,
+					association: Participant.OccupationEducation,
+					model: OccupationEducation,
 				},
 				{
-				  association: Participant.EmergencyContact,
-				  model: EmergencyContact,
+					association: Participant.EmergencyContact,
+					model: EmergencyContact,
 				},
 				{
-				  association: Participant.MedicalInfo,
-				  model: MedicalInfo,
+					association: Participant.MedicalInfo,
+					model: MedicalInfo,
 				},
 				{
-				  association: Participant.SportsInfo,
-				  model: SportsInfo,
+					association: Participant.SportsInfo,
+					model: SportsInfo,
 				},
 				{
-				  association: Participant.UmpireInfo,
-				  model: UmpireInfo,
+					attributes: ['isNewToUmpiring'],
+					association: Participant.UmpireInfo,
+					model: UmpireInfo,
 				},
 				{
-				  attributes:['chestPain', 'heartTrouble', 'bloodPressure', 'faintOrSpells', 'lowerBackProblem', 'physicalActivity', 'jointOrBoneProblem', 'jointOrBoneProblem'],
-				  association: Participant.HealthIndicator,
-				  model: HealthIndicator,
+					attributes:['chestPain', 'heartTrouble', 'bloodPressure', 'faintOrSpells', 'lowerBackProblem', 'physicalActivity', 'jointOrBoneProblem', 'jointOrBoneProblem'],
+					association: Participant.HealthIndicator,
+					model: HealthIndicator,
 				},
 				{
 					attributes: ['name'],
@@ -256,7 +257,7 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 			photographyConsent: participant.photographyConsent,
 			identifyAs: participant.idetifyAs,
 			countryOfBirth: participant.countryOfBirth,
-			umpireInfo: Participant.UmpireInfo,
+			umpireInfo: participant.UmpireInfo,
 			heardyAboutCompetition: participant.SportsInfo ? participant.SportsInfo.heardyAboutCompetition : null,
 			heardByOther: participant.SportsInfo ? participant.SportsInfo.heardByOther : null,
 			favouriteTeam: participant.SportsInfo ? participant.SportsInfo.favouriteTeam : null,
@@ -266,7 +267,7 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 			school: participant.OccupationEducation ? participant.OccupationEducation.school : null,
 			schoolGrade: participant.OccupationEducation ? participant.OccupationEducation.schoolGrade : null,
 			SSP: participant.OccupationEducation ? participant.OccupationEducation.SSP : null,
-			preferredPlay: participant.PreferredPlay ? participant.PreferredPlay.map((play: PreferredPlay) => play.day) : null,
+			preferredPlay: participant.PreferredPlays ? participant.PreferredPlays.map((play: PreferredPlay) => play.day) : null,
 			existingMedicalCondition: participant.MedicalInfo ? participant.MedicalInfo.existingMedicalCondition : null,
 			regularMedication: participant.MedicalInfo ? participant.MedicalInfo.regularMedication : null,
 			hasDisability: participant.MedicalInfo ? participant.MedicalInfo.hasDisability : null,
