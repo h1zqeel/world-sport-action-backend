@@ -30,6 +30,4 @@ ChildrenCheckInfo.init(
 	}
 );
 
-ChildrenCheckInfo.sync();
-
 export default ChildrenCheckInfo;

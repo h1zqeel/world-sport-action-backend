@@ -59,6 +59,4 @@ Competition.hasMany(CompetitionParticipant, {
 	onUpdate: 'CASCADE'
 });
 
-Competition.sync();
-
 export default Competition;

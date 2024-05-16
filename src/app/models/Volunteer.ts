@@ -30,6 +30,4 @@ Volunteer.init(
 	}
 );
 
-Volunteer.sync();
-
 export default Volunteer;

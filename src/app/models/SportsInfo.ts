@@ -40,6 +40,4 @@ SportsInfo.init(
 	}
 );
 
-SportsInfo.sync();
-
 export default SportsInfo;

@@ -25,7 +25,4 @@ PreferredPlay.init(
 	}
 );
 
-
-PreferredPlay.sync();
-
 export default PreferredPlay;

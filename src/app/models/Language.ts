@@ -25,6 +25,4 @@ Language.init(
 	}
 );
 
-Language.sync();
-
 export default Language;

@@ -25,7 +25,4 @@ OtherSport.init(
 	}
 );
 
-
-OtherSport.sync();
-
 export default OtherSport;
