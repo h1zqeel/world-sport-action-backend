@@ -1,10 +1,12 @@
 import { Sequelize } from 'sequelize-typescript';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const sequelize = new Sequelize({
-  database: 'world-sport-action',
-  username: 'hizqeel',
-  password: 'postgres',
-  host: 'localhost',
+  database: process.env.DATABASE,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  host: process.env.HOST,
   dialect: 'postgres',
   models: [__dirname + '/src/models']
 });
