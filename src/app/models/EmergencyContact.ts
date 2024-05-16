@@ -35,6 +35,4 @@ EmergencyContact.init(
 	}
 );
 
-EmergencyContact.sync();
-
 export default EmergencyContact;
