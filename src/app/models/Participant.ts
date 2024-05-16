@@ -103,76 +103,76 @@ Participant.init(
 	}
 );
 
-Participant.hasOne(AccreditationInfo, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
+Participant.sync().then(()=>{
+	Participant.hasOne(AccreditationInfo, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(ChildrenCheckInfo, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(ContactInfo, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(EmergencyContact, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(HealthIndicator, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(MedicalInfo, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(OccupationEducation, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(SportsInfo, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasOne(UmpireInfo, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasMany(Language, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasMany(OtherSport, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasMany(PreferredPlay, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	});
+
+	Participant.hasMany(Volunteer, {
+		foreignKey: 'userId',
+		onDelete: 'CASCADE'
+	})
+
+	Participant.hasMany(CompetitionParticipant, {
+		foreignKey: 'registeredParticipantId',
+		onDelete: 'CASCADE'
+	});
 });
-
-Participant.hasOne(ChildrenCheckInfo, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasOne(ContactInfo, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasOne(EmergencyContact, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasOne(HealthIndicator, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasOne(MedicalInfo, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasOne(OccupationEducation, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasOne(SportsInfo, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasOne(UmpireInfo, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasMany(Language, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasMany(OtherSport, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasMany(PreferredPlay, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-});
-
-Participant.hasMany(Volunteer, {
-	foreignKey: 'userId',
-	onDelete: 'CASCADE'
-})
-
-Participant.hasMany(CompetitionParticipant, {
-	foreignKey: 'registeredParticipantId',
-	onDelete: 'CASCADE'
-});
-
-Participant.sync();
 
 export default Participant;

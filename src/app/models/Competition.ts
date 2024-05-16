@@ -47,18 +47,18 @@ Competition.init(
 	}
 );
 
-Competition.hasMany(CompetitionVenues, {
-	foreignKey: 'competitionId',
-	onDelete: 'CASCADE',
-	onUpdate: 'CASCADE'
+Competition.sync().then(()=>{
+	Competition.hasMany(CompetitionVenues, {
+		foreignKey: 'competitionId',
+		onDelete: 'CASCADE',
+		onUpdate: 'CASCADE'
+	});
+	
+	Competition.hasMany(CompetitionParticipant, {
+		foreignKey: 'competitionId',
+		onDelete: 'CASCADE',
+		onUpdate: 'CASCADE'
+	});
 });
-
-Competition.hasMany(CompetitionParticipant, {
-	foreignKey: 'competitionId',
-	onDelete: 'CASCADE',
-	onUpdate: 'CASCADE'
-});
-
-Competition.sync();
 
 export default Competition;
