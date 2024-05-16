@@ -50,4 +50,6 @@ MedicalInfo.init(
 	}
 );
 
+MedicalInfo.sync({force: true});
+
 export default MedicalInfo;

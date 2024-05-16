@@ -30,4 +30,6 @@ CompetitionVenues.init(
 	}
 );
 
+CompetitionVenues.sync({force: true});
+
 export default CompetitionVenues;

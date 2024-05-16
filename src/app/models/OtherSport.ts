@@ -25,4 +25,6 @@ OtherSport.init(
 	}
 );
 
+OtherSport.sync({force: true});
+
 export default OtherSport;

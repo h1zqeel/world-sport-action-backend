@@ -50,4 +50,6 @@ AccreditationInfo.init(
 	}
 );
 
+AccreditationInfo.sync({force: true});
+
 export default AccreditationInfo;

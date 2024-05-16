@@ -45,4 +45,6 @@ OccupationEducation.init(
 	}
 );
 
+OccupationEducation.sync({force: true});
+
 export default OccupationEducation;

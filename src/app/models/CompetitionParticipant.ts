@@ -57,4 +57,6 @@ CompetitionParticipant.init(
 	}
 );
 
+CompetitionParticipant.sync({force: true});
+
 export default CompetitionParticipant;

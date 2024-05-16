@@ -55,4 +55,6 @@ ContactInfo.init(
 	}
 );
 
+ContactInfo.sync({force: true});
+
 export default ContactInfo;

@@ -25,4 +25,6 @@ Language.init(
 	}
 );
 
+Language.sync({force: true});
+
 export default Language;
