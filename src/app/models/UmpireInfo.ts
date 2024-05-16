@@ -25,6 +25,6 @@ UmpireInfo.init(
 	}
 );
 
-UmpireInfo.sync({force: true});
+UmpireInfo.sync();
 
 export default UmpireInfo;

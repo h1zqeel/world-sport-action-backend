@@ -60,6 +60,6 @@ HealthIndicator.init(
 	}
 );
 
-HealthIndicator.sync({force: true});
+HealthIndicator.sync();
 
 export default HealthIndicator;
