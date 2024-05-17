@@ -62,6 +62,9 @@ const registerParticipantToCompetition = async (
       nonRegisteredParticipantId: registrationData.nonRegisteredParticipantId,
       role: registrationData.role,
       team: registrationData.team,
+	  preferredPosition1: registrationData.preferredPosition1,
+	  preferredPosition2: registrationData.preferredPosition2,
+	  organisation: registrationData.organisation
     });
 
     return res.status(201).json(registration);
