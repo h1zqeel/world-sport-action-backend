@@ -159,6 +159,7 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 				  model: UmpireInfo,
 				},
 				{
+				  attributes:['chestPain', 'heartTrouble', 'bloodPressure', 'faintOrSpells', 'lowerBackProblem', 'physicalActivity', 'jointOrBoneProblem', 'jointOrBoneProblem'],
 				  association: Participant.HealthIndicator,
 				  model: HealthIndicator,
 				},
@@ -171,10 +172,12 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 					model: PreferredPlay
 				},
 				{
+					attributes: ['name'],
 					association: Participant.OtherSport,
 					model: OtherSport
 				},
 				{
+					attributes: ['id', 'isActive', 'description'],
 					association: Participant.Volunteers,
 					model: Volunteer
 				}
