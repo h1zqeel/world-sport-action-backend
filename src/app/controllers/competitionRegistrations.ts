@@ -164,6 +164,7 @@ const getFullParticipantRegistrationDetails = async (req: Request, res: Response
 				  model: HealthIndicator,
 				},
 				{
+					attributes: ['name'],
 					association: Participant.Language,
 					model: Language
 				},
